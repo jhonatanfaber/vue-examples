@@ -32,19 +32,16 @@ export default {
   data() {
     return {
       product: {
-        name : "",
-        checked : false
+        name : ""
       },
       productList: []
     };
   },
   methods: {
     addProduct() {
+      this.$set(this.product,'checked', false)
       this.productList.push(this.product);
-      this.product = {
-        name: "",
-        checked: false
-      }
+      this.product = {}
     },
     checkAll() {
       this.productList.forEach(product => {
