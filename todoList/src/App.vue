@@ -7,6 +7,7 @@
       <div class="list-wrapper__ buttons">
         <button @click="addProduct">Add Product </button>
         <button @click="checkAll">Check all </button>
+        <button @click="cleanAll">Clean all </button>
       
       </div>
 
@@ -50,8 +51,13 @@ export default {
     },
     checkAll() {
       this.productList.forEach(product => {
-        product.checked = !product.checked;
-      });
+        product.checked = true;
+      })
+    },
+    cleanAll(){
+      this.productList.forEach(product => {
+        product.checked = false
+      })
     }
   }
 };
