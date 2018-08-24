@@ -31,22 +31,27 @@ export default {
   },
   data() {
     return {
-      product: {
-        name : ""
-      },
+      product: {},
       productList: []
     };
   },
   methods: {
+    createNewProduct() {
+      let newProduct = {
+        name: this.product.name,
+        checked: false
+      }
+      return newProduct
+    },
     addProduct() {
-      this.$set(this.product,'checked', false)
+      this.product = this.createNewProduct();
       this.productList.push(this.product);
-      this.product = {}
+      this.product = {};
     },
     checkAll() {
       this.productList.forEach(product => {
         product.checked = !product.checked;
-      })
+      });
     }
   }
 };
