@@ -15,6 +15,7 @@
         <product 
           v-for="product in productList" :key="product.id"
           :productName="product"
+          @deleteProduct="removeProduct"
       ></product>
       </div>
     </div>
@@ -40,9 +41,10 @@ export default {
     createNewProduct() {
       let newProduct = {
         name: this.product.name,
-        checked: false
-      }
-      return newProduct
+        checked: false,
+        id: Date.now() + this.product.name
+      };
+      return newProduct;
     },
     addProduct() {
       this.product = this.createNewProduct();
@@ -52,12 +54,19 @@ export default {
     checkAll() {
       this.productList.forEach(product => {
         product.checked = true;
-      })
+      });
     },
-    cleanAll(){
+    cleanAll() {
       this.productList.forEach(product => {
-        product.checked = false
-      })
+        product.checked = false;
+      });
+    },
+    removeProduct(idComingfromSon) {
+      this.productList.forEach((product, index) => {
+        if (product.id == idComingfromSon) {
+          this.productList.splice(index, 1);
+        }
+      });
     }
   }
 };

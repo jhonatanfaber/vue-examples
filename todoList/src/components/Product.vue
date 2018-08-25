@@ -2,7 +2,7 @@
     <div class="productWrapper" :class="{'line':productName.checked}"> 
             {{productName.name}} 
         <input type="checkbox" v-model="productName.checked">
-        <a @click="a"><i class="fas fa-trash-alt"></i></a> 
+        <a @click="sendDeleteMessage"><i class="fas fa-trash-alt"></i></a> 
     </div>
 
 </template>
@@ -14,9 +14,8 @@ export default {
   name: "Product",
   props: ["productName"],
   methods: {
-    a(){
-      console.log("aaaaaaaaaa");
-      
+    sendDeleteMessage(){
+      this.$emit("deleteProduct", this.productName.id)
     }
   }
 };
