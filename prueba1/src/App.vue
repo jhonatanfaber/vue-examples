@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <p class="title">Hi {{ name }}</p>
     <hr>
     

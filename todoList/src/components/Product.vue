@@ -21,7 +21,7 @@ export default {
 };
 </script>
 
-<style >
+<style scoped>
 .line {
   text-decoration: line-through;
   color: rgb(110, 7, 7);
